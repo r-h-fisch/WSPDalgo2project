@@ -38,7 +38,38 @@
     <div class="post">
       <h3 class="post-title"><a href="">DEFINITION OF sWSPD</a></h3>
       <div class="post-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ipsum justo, auctor eu pulvinar ac, rhoncus vel diam. Nunc venenatis pellentesque diam, vitae dictum erat ornare non. Phasellus in elit diam, id cursus lectus. Phasellus dui odio, rutrum sit amet dapibus ac, consequat eu lacus. Duis sit amet nisi erat. Fusce et accumsan turpis. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer feugiat elementum arcu et tincidunt.</p>
+        <p> Δu = diameter of node u <br>
+            Δv = diameter of node v <br>
+            ▢u = set of leaves in node u <br>
+            ▢v = set of leaves in node v <br>
+            F = created s-WSPD <br>
+
+            First call of the function is: WSPD(root, root)</p>
+
+      <pre>
+WSPD(u, v)
+{
+  if ∆u < ∆v
+    swap(u, v)
+    if ∆u ≤ sd(▢u,▢v)
+     F = F ∪{(u,v)}
+  else
+    for each child w of u 
+      WSPD(w, v)
+}
+</pre>
+      </div>
+    </div>
+        <div class="post">
+      <h3 class="post-title"><a href="">Building the sWSPD from a QUADTREE</a></h3>
+      <div class="post-content">
+        <p> Δu = diameter of node u <br>
+            Δv = diameter of node v <br>
+            ▢u = set of leaves in node u <br>
+            ▢v = set of leaves in node v <br>
+            F = created s-WSPD <br>
+
+            First call of the function is: WSPD(root, root)</p>
 
       <pre>
 WSPD(u, v)
