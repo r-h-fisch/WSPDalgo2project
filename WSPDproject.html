@@ -37,11 +37,24 @@
     </div>
     
      <div class="post">
-      <h3 class="post-title"><a href="">Quadtree</a></h3>
+      <h3 class="post-title"><a href="">PR Quadtree</a></h3>
       <div class="post-content">
-           <img src="https://media.giphy.com/media/RJbjlHL49iLS7awjB2/giphy.gif">
-           <img src="https://media.giphy.com/media/h6l1soXTasLR3B2t1P/giphy.gif">
-
+        <p>
+          In the <b>Point-Region quadtree </b> (PR quadtree) each node either has exactly four children or is a leaf. The PR quadtree represents a collection of data points in two dimensions by decomposing the region containing the data points into four equal quadrants, subquadrants, and so on, until no leaf node contains more than a single point.
+        </p>
+        <img src="https://media.giphy.com/media/RJbjlHL49iLS7awjB2/giphy.gif">
+        <img src="https://media.giphy.com/media/h6l1soXTasLR3B2t1P/giphy.gif">
+        <br>
+        <p>
+          For the purpose of constructing sWSPD we use a <b>compressed PR quadtree</b> that can be constructed in <u><b>O(nlogn)</b></u>. 
+          <br><br>
+          A compressed PR quadtree is a quadtree that has two types of nodes: <b>compressed and uncompressed</b>. 
+          <ul>
+            <li><b>Compressed</b> nodes have a single child and represent the area of the quadrant around their child.</li>
+            <li><b>Uncompressed</b> nodes are either leaves or split the pointset in their square into two or more subsets.</li>
+          </ul>
+          Compressed trees have <b>linear size</b>.<br>
+        </p>
 
       </div>
     </div>
