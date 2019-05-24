@@ -79,9 +79,6 @@ body {
   text-decoration: none;
 }
 
-.content a:hover {
-  text-decoration: underline;
-}
 
 .post-title {
   margin: 10px 0;
