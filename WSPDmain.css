@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Lora', serif;
-  background: #2B2B2B;
+  background: linear-gradient(40deg, #8D80AD, #6D70BE);
   color: rgb(193,193,193);
   margin: 0 auto;
 }
@@ -22,7 +22,7 @@ body {
 .header .title {
   margin: 0;
   margin-top: 30px;
-  text-align: right;
+  text-align: center;
   font-weight: normal;
   font-size: 18pt;
   letter-spacing: 4px;
@@ -41,7 +41,7 @@ body {
 
 .header .links a {
   text-decoration: none;
-  color: rgb(106, 156, 190);
+  color:  #FFF;
   padding-right: 10px;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 
 .content a {
-  color: rgb(106, 156, 190);
+  color: #24288c;
   text-decoration: none;
 }
 
@@ -86,7 +86,7 @@ body {
 .post-title {
   margin: 10px 0;
   padding: 5px 15px;
-  color: rgb(106, 156, 190);
+  color: #24288c; 
 }
 
 .post-date {
@@ -131,7 +131,7 @@ body {
 }
 
 .pagination li.current {  
-  background: rgb(106, 156, 190);
+  background: #24288c;
 }
 
 .pagination li.current a {
