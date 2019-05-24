@@ -93,8 +93,15 @@ WSPD(u, v)
 </pre>
       </div>
     </div>
+<<<<<<< HEAD
       <div class="post" id="packing">
       <h3 class="post-title"><a>Packing Argument</a></h3>
+=======
+      <div class="post">
+
+      <h3 class="post-title"><a href="">Packing Argument</a></h3>
+
+>>>>>>> master
       <div class="post-content">
         <p>Algorithm uses a packing argument to divide up the nodes of the quadtree into s-WSPD. The number of circles of size Δ that are at k away from a given point is O(k^2/Δ^2) or in our case O(1/s^2)</p>
         <p> A circle packing is an arrangement of circles inside a given boundary such that no two overlap and some (or all) of them are mutually tangent. The generalization to spheres is called a sphere packing. Tessellations of regular polygons correspond to particular circle packings (Williams 1979, pp. 35-41). There is a well-developed theory of circle packing in the context of discrete conformal mapping (Stephenson). </p>
@@ -116,7 +123,7 @@ WSPD(u, v)
         <b>Proof.</b><br>
         Set δ = s/16. Construct δ-WSPD F for S. For each pair (Ai,Bi) ∈ F, choose (pi,qi) ∈ Ai×Bi.
         Let E = {(pi, qi) | 1 ≤ i ≤ |F|}. We use induction on the (n choose 2) distances to show that G = (S, E) is an s-spanner.</p>
-        <img src = “spanner_diagram.png”>
+        <img src="spanner_diagram.jpg" style="width:480px;height:270px;">
         <p> <center> dG(p, q) = dG(p, pi) + ∥pi, qi∥ + dG(q, qi)</center><br>
         By the property of δ-WSPD,<br>
         <center> ∥p−pi∥ ≤ δ∥pi − qi∥. </center><br>
