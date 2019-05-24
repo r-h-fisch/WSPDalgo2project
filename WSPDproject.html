@@ -18,6 +18,7 @@
   <ul class="links">
     <li class="current"><a href="">Homepage</a></li>
     <li><a href="">Definition</a></li>
+    <li><a href="">Quadtree</a></li>
     <li><a href="">Building the sWSPD from a QUADTREE</a></li>
     <li><a href="">Packing Argument</a></li>
     <li><a href="">Application of sWSPD on Spanners</a></li>
@@ -40,10 +41,17 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ipsum justo, auctor eu pulvinar ac, rhoncus vel diam. Nunc venenatis pellentesque diam, vitae dictum erat ornare non. Phasellus in elit diam, id cursus lectus. Phasellus dui odio, rutrum sit amet dapibus ac, consequat eu lacus. Duis sit amet nisi erat. Fusce et accumsan turpis. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer feugiat elementum arcu et tincidunt.</p>
 
       <pre>
-// this is code!
-$(function() {
-  console.log('hello');
-});</pre>
+WSPD(u, v)
+{
+  if ∆u < ∆v
+    swap(u, v)
+    if ∆u ≤ sd(▢u,▢v)
+     F = F ∪{(u,v)}
+  else
+    for each child w of u 
+      WSPD(w, v)
+}
+</pre>
       </div>
     </div>
       <div class="post">
