@@ -86,19 +86,43 @@ WSPD(u, v)
       </div>
     </div>
       <div class="post">
-      <h3 class="post-title"><a href="">This post has an image in it!</a></h3>
+      <h3 class="post-title"><a href="">Packing Arguement</a></h3>
       <div class="post-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ipsum justo, auctor eu pulvinar ac, rhoncus vel diam. Nunc venenatis pellentesque diam, vitae dictum erat ornare non. Phasellus in elit diam, id cursus lectus. Phasellus dui odio, rutrum sit amet dapibus ac, consequat eu lacus. Duis sit amet nisi erat. Fusce et accumsan turpis. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer feugiat elementum arcu et tincidunt.</p>
+        <p>Algorithm uses a packing argument to divide up the nodes of the quadtree into s-WSPD. The number of circles of size Δ that are at k away from a given point is O(k^2/Δ^2) or in our case O(1/s^2)</p>
 
       <img src="http://learningfromdogs.files.wordpress.com/2010/09/dog-alpaca.png?w=700">
         <p>Damnit I love alpacas. So cute. This one is friends with a dog.</p>
       </div>
     </div>
     
+    
     <div class="post">
       <h3 class="post-title"><a href="">Application of sWSPD on Spanners</a></h3>
       <div class="post-content">
-        <p>SOFIIA THIS IS FOR YOU!!!!!</p>
+        <p> A spanner is a small-size graph such that the shortest path distance between any two points is roughly their Euclidean distance.<br><br>
+        <b>Definition.</b> A graph G = (S, E) is a ε-spanner if <br> 
+        <center>∀p,q ∈ S, dG(p,q) ≤ (1+ε)∥p−q∥.</center><br> 
+        <b>Theorem.</b><br> 
+        ∀s>0, in two dimensional space an s-spanner on S of size O(n) can be constructed in O(nlogn + n/(s^2)) time. <br>
+        <b>Proof.</b><br>
+        Set δ = s/16. Construct δ-WSPD F for S. For each pair (Ai,Bi) ∈ F, choose (pi,qi) ∈ Ai×Bi.
+        Let E = {(pi, qi) | 1 ≤ i ≤ |F|}. We use induction on the (n choose 2) distances to show that G = (S, E) is an s-spanner.</p>
+        <img src = “spanner_diagram.png”>
+        <p> <center> dG(p, q) = dG(p, pi) + ∥pi, qi∥ + dG(q, qi)</center><br>
+        By the property of δ-WSPD,<br>
+        <center> ∥p−pi∥ ≤ δ∥pi − qi∥. </center><br>
+        By the inductive hypothesis,<br>
+        <center>dG(p,pi)≤(1+s)∥p−pi∥≤(1+s)δ∥pi−qi∥</center><br>
+        Similarly, (1+s)∥q−qi∥≤(1+s)δ∥pi−qi∥. By triangle inequality,
+        <br><br>
+        <center>∥pi−qi∥ ≤ ∥p−q∥ + ∥p−pi∥ + ∥q−qi∥ ≤ ∥p−q∥ + 2δ∥p−q∥ = (1+2s)∥p−q∥</center><br>
+        Since δ ≤ s/16 ,it can be argued that ∥p−pi∥ < ∥p−q∥. Therefore 
+        <br><br>
+        <center>dG(p, q) ≤ dG(p, pi) + dG(q, qi) + ∥pi − qi∥</center><br>
+        <center> ≤ 2(1+s)δ∥pi − qi∥ + ∥pi − qi∥ </center><br>
+        <center>≤ (1+2(1+s)δ)(1+2δ)∥p − q∥ </center><br>
+        <center>dG(p, q) ≤ (1 + s) ∥p − q∥</center><br>
+        <center>Q.E.D.</center></p>
 
       </div>
     </div>
