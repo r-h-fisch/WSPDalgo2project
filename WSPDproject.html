@@ -62,7 +62,19 @@
             <li><b>Compressed</b> nodes have a single child and represent the area of the quadrant around their child.</li>
             <li><b>Uncompressed</b> nodes are either leaves or split the pointset in their square into two or more subsets.</li>
           </ul>
-          Compressed trees have <b>linear size</b>.<br>
+          Compressed trees have <b>linear size</b>.<br><br>
+          <u><b>Construction of a quadtree on a set of points P:</b></u><br><br>
+          Set k = |P|/10. Construct a disk D with a radius r such that D contains at least k points of the set P and<br> 
+          <center>r(opt)(P, k) ≤ r ≤ 2r(opt)(P, k).</center><br>
+          Let l = 2^(floor(log(r))) ≥ r/2. Compute a grid with the length of a side of each cell equal to l. 
+          Find a cell c with the maximum number of points inside of it.<br><br>
+          <center>P(in) = P ∩ c, P(out) = P \ c.</center><br>
+          <center>l ≥ r/2 ⇒ |P(in)| ≥ k/25 = |P|/250. </center><br>
+          <center>l ≤ 2 r(opt)(P,k) ⇒ |P(in)| ≤ 4|P|/5.</center> <br>
+          Recursive call on P(in) and P(out).<br><br>
+          <img src="quadtree_build.jpg" style="width:480px;height:270px;"><br>
+          In both trees create a node that corresponds to the cell c. In T(in), a result of a recursive call on P(in), it will ba a root node v(in). In T(out), a result of a recursive call on P(out), it will be a leaf node v(out). Contract two nodes into each other so that T(in) is a subtree of T(out). <br><br>
+          ⇒ <u><b>O(|P|log|P|)</b></u>
         </p>
 
       </div>
