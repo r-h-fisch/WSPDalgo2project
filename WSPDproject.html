@@ -74,7 +74,7 @@
           Recursive call on P(in) and P(out).<br><br>
           <img src="quadtree_build.jpg" style="width:480px;height:270px;"><br>
           In both trees create a node that corresponds to the cell c. In T(in), a result of a recursive call on P(in), it will ba a root node v(in). In T(out), a result of a recursive call on P(out), it will be a leaf node v(out). Contract two nodes into each other so that T(in) is a subtree of T(out). <br><br>
-          ⇒ <u><b>O(|P|log|P|)</b></u>
+          ⇒ T(|P|) = O(|P|) + T(P(in)) + T(P(out)) ⇒ <u><b>O(|P|log|P|)</b></u>
         </p>
 
       </div>
