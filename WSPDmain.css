@@ -114,27 +114,6 @@ body {
   border: solid #CCC 1px;
 }
 
-.pagination {
-  margin-top: 25px;
-  text-align: center;
-}
-
-.pagination ul {
-}
-
-.pagination li {
-  display: inline;
-  padding: 0 5px;
-}
-
-.pagination li.current {  
-  background: #24288c;
-}
-
-.pagination li.current a {
-  color: white;
-}
-
 .footer {
   color: #A8A8A8;
   padding-top: 10px;

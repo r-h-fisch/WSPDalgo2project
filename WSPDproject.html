@@ -32,7 +32,18 @@
       <div class="post"  id="top">
       <h3 class="post-title"><a >Quick Overview</a></h3>
       <div class="post-content">
-        WORK IN PROGRESS
+       <p> Paul B. Callahan and S. Rao Kosaraju devised the well-separated pair decomposition (WSPD). They showed that it can be used to solve a variety of distance problems. A WSPD is a partition of the (n over 2) edges of the complete Euclidean graph into O(n) subsets. Each subset in this partition is represented by two subsets A and B of the point set S, such that:
+        <ol>
+        <li> All distances between points in A and points in B are approximately equal </li>
+        <li> All distances within the point set A are much smaller than distances between A and B </li>
+         <li> All distances within the point set B are much smaller than distances between A and B. </li>
+      </ol>
+        Thus, a WSPD can be regarded as a set of O(n) edges that approximates the dense complete Euclidean graph. 
+        <br>
+      </p>
+       <img src="blankintroimage.jpg" style="width:480px;height:270px;">
+      <p>
+        The WSPD can be used to obtain many optimal algorithms for solving problems such as: closest pair problem, the k-closest pairs problem, the all-nearest neighbors problem, and the approximate minimum spanning tree problem. On this site, we will mainly focus on the details of the WSPD and its application with reguards to constructing spanners. </p>
       </div>
     </div>
 
@@ -93,21 +104,9 @@ WSPD(u, v)
 </pre>
       </div>
     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
       <div class="post" id="packing">
       <h3 class="post-title"><a>Packing Argument</a></h3>
-=======
-      <div class="post">
-
-      <h3 class="post-title"><a href="">Packing Argument</a></h3>
-
->>>>>>> 91cc51aaee833fb807d420bd453a5a2ac5d682bd
-=======
-      <div class="post" id="packing">
-      <h3 class="post-title"><a>Packing Argument</a></h3>
-
->>>>>>> e8edaabf8b87f76f938c18e78aa2a3f0581ce2b8
       <div class="post-content">
         <p>Algorithm uses a packing argument to divide up the nodes of the quadtree into s-WSPD. The number of circles of size Δ that are at k away from a given point is O(k^2/Δ^2) or in our case O(1/s^2)</p>
         <p> A circle packing is an arrangement of circles inside a given boundary such that no two overlap and some (or all) of them are mutually tangent. The generalization to spheres is called a sphere packing. Tessellations of regular polygons correspond to particular circle packings (Williams 1979, pp. 35-41). There is a well-developed theory of circle packing in the context of discrete conformal mapping (Stephenson). </p>
