@@ -20,7 +20,7 @@
     <li><a href="#Definition">Definition</a></li>
     <li><a href="#quadtree"> Point-Region Quadtree</a></li>
     <li><a href="#buildingWSPD">Building the sWSPD from a QUADTREE</a></li>
-    <li><a href="#packing">Packing Argument</a></li>
+    <li><a href="#packing">Proof of Correctness</a></li>
     <li><a href="#Application">Application of sWSPD on Spanners</a></li>
     <li><a href="">Works Cited</a></li>
   </ul>
@@ -32,7 +32,7 @@
       <div class="post"  id="top">
       <h3 class="post-title"><a >Quick Overview</a></h3>
       <div class="post-content">
-       <p> Paul B. Callahan and S. Rao Kosaraju devised the well-separated pair decomposition (WSPD). They showed that it can be used to solve a variety of distance problems. A WSPD is a partition of the (n over 2) edges of the complete Euclidean graph into O(n) subsets. Each subset in this partition is represented by two subsets A and B of the point set S, such that:
+       <p> Paul B. Callahan and S. Rao Kosaraju devised the well-separated pair decomposition (WSPD). They showed that it can be used to solve a variety of distance problems. A WSPD is a partition of the (n choose 2) edges of the complete Euclidean graph into O(n) subsets. Each subset in this partition is represented by two subsets A and B of the point set S, such that:
         <ol>
         <li> All distances between points in A and points in B are approximately equal </li>
         <li> All distances within the point set A are much smaller than distances between A and B </li>
@@ -98,37 +98,65 @@
         <div class="post" id="buildingWSPD">
       <h3 class="post-title"><a>Building the sWSPD from a QUADTREE</a></h3>
       <div class="post-content">
-        <p> Δu = diameter of node u <br>
+
+        <p> Given a PR quadtree T nodes u and v and given a desired amount of seperation s > 0, let P(u) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of u. Simmilarly let P(v) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of v. We can find WSPD for the unordered cartesian product (⊗) of P(u) ⊗ P(v) using the algorithm below.
+        <br>
+        <center>
+          Δu = diameter of node u <br>
             Δv = diameter of node v <br>
             ▢u = set of leaves in node u <br>
             ▢v = set of leaves in node v <br>
             F = created s-WSPD <br>
-
-            First call of the function is: WSPD(root, root)</p>
+        </center>
+            First call of the function is: WSPD(root, root, T, s)</p>
 
       <pre>
-WSPD(u, v)
-{
-  if ∆u < ∆v
-    swap(u, v)
-  if ∆u ≤ sd(▢u,▢v)
-    F = F ∪{(u,v)}
-  else
-    for each child w of u 
-      WSPD(w, v)
-}
+  WSPD(u, v, T, s)
+            {
+              if(∆u = 0 or ∆v = 0)
+                return 0;
+              else if(P(u) and P(v) is s-well separated) 
+                return {{u, v}};
+              else if ∆u < ∆v
+                swap(u, v)
+              else if ∆u ≤ sd(▢u,▢v)
+                F = F ∪{(u,v)}
+              else
+                for each child w of u 
+                  WSPD(w, v, T, s)
+            }
 </pre>
       </div>
     </div>
 
       <div class="post" id="packing">
-      <h3 class="post-title"><a>Packing Argument</a></h3>
+      <h3 class="post-title"><a>Proof of Correctness</a></h3>
       <div class="post-content">
-        <p>Algorithm uses a packing argument to divide up the nodes of the quadtree into s-WSPD. The number of circles of size Δ that are at k away from a given point is O(k^2/Δ^2) or in our case O(1/s^2)</p>
+        <p>To prove our the correctness of the algorithm above, we apply 2 major concepts: a lemma and the packing argument (explained below). Using these key concepts, we show that the build time for a WSPD in 2D is O(nlog(n) + n/(s^2)). </p>
+       <u> <h4> Lemma </h4> </u>
+       <p> <u> <center>If (P(u),P(v)) ∈ P max{Δu, Δv} ≤ min{Δparent(u), Δparent(v)} </u> <br>(using the previously defined symbols)</center>
+        <br>
+        In order to get to nodes u and v we needed to go thought their previous nodes which are their parents. This implies that the parent(v) is not well seperated with u. 
+        </p>
+         <img src="https://media.giphy.com/media/Q7RqxEne9nk3eMi0dO/giphy.gif">
+       <p>
+         We know that no node can ever split apart more than s^2 times because we are in a 2D space. Hence, we can just look at each leaf node and how many times each parent directly above it was split. Looking at parent(u) we can observe the following:
+         <br>
+         <ul>
+         <li>In order for the parent(v) to have been split into v, ∆u < diameter(parent(v)).</li>
+         <li>In order for parent(u) to have split into u, parent(u) > parent(v). </li>
+
+       </ul>
+                  <img src="wspdLemma.jpg" style="width:395.5px;height:262px;"> <br>
+       Thus, <b> ∆u < diam(parent(v)) < diam(parent(u))</b>.
+    
+       </p>
+       <u><h4> Packing Argument</h4></u>
+        <p>Algorithm also uses a packing argument to divide up the nodes of the quadtree into s-WSPD. The number of circles of size Δ that are at k away from a given point is O(k^2/Δ^2) or in our case O(1/s^2)</p>
         <p> A circle packing is an arrangement of circles inside a given boundary such that no two overlap and some (or all) of them are mutually tangent. The generalization to spheres is called a sphere packing. Tessellations of regular polygons correspond to particular circle packings (Williams 1979, pp. 35-41). There is a well-developed theory of circle packing in the context of discrete conformal mapping (Stephenson). </p>
         <p> for more cool visualizations of circle packing see this link: http://lramrz.com/2017/01/circle-packing-in-processing/</p>
 
-      <img src="http://learningfromdogs.files.wordpress.com/2010/09/dog-alpaca.png?w=700">
+      <img src="http://mathworld.wolfram.com/images/eps-gif/CircleTriplets_1000.gif">
       </div>
     </div>
     
