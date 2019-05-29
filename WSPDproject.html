@@ -98,7 +98,9 @@
         <div class="post" id="buildingWSPD">
       <h3 class="post-title"><a>Building the sWSPD from a QUADTREE</a></h3>
       <div class="post-content">
-        <p> Δu = diameter of node u <br>
+        <p> Given a PR quadtree T nodes u and v and given a desired amount of seperation s > 0, let $${P_u}$$ denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of u. Simmilarly let $${P_v}$$ denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of v. We can find WSPD for the unordered cartesian product (⊗) of P_u ⊗ P_v using the algorithm below.
+
+            Δu = diameter of node u <br>
             Δv = diameter of node v <br>
             ▢u = set of leaves in node u <br>
             ▢v = set of leaves in node v <br>
@@ -106,18 +108,22 @@
 
             First call of the function is: WSPD(root, root)</p>
 
-      <pre>
-WSPD(u, v)
-{
-  if ∆u < ∆v
-    swap(u, v)
-  if ∆u ≤ sd(▢u,▢v)
-    F = F ∪{(u,v)}
-  else
-    for each child w of u 
-      WSPD(w, v)
-}
-</pre>
+          <pre>
+          WSPD(u, v, T, s)
+          {
+            if(∆u = 0 or ∆v = 0)
+              return 0;
+            else if(P_u and P_v is s-well separated) 
+              return {{u, v}};
+            else if ∆u < ∆v
+              swap(u, v)
+            else if ∆u ≤ sd(▢u,▢v)
+              F = F ∪{(u,v)}
+            else
+              for each child w of u 
+                WSPD(w, v)
+          }
+          </pre>
       </div>
     </div>
 
