@@ -105,7 +105,7 @@
   <!-- PROOF OF CORRECTNESS -->
   <div class="container-fluid bg-b" id="building">
     <h1 class="text-center">BUILDING THE sWSPD FROM A QUADTREE</h1>
-            <p> Given a PR quadtree T nodes u and v and given a desired amount of seperation s > 0, let P(u) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of u. Simmilarly let P(v) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of v. We can find WSPD for the unordered cartesian product (⊗) of P(u) ⊗ P(v) using the algorithm below.
+            <p> Given a PR quadtree T nodes u and v and given a desired amount of seperation s > 0, let P(u) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of u. Simmilarly let P(v) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of v. We can find WSPD for the Tensor product (⊗) of P(u) ⊗ P(v) using the algorithm below.
         <br>
         <center>
           Δu = diameter of node u <br>
@@ -122,7 +122,7 @@
               if(∆u = 0 or ∆v = 0)
                 return 0;
               else if(P(u) and P(v) is s-well separated) 
-                return {{u, v}};
+                return {(u, v)};
               else if ∆u < ∆v
                 swap(u, v)
               else if ∆u ≤ sd(▢u,▢v)
