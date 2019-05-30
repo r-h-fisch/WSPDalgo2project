@@ -105,7 +105,7 @@
   <!-- PROOF OF CORRECTNESS -->
   <div class="container-fluid bg-b" id="building">
     <h1 class="text-center">BUILDING THE sWSPD FROM A QUADTREE</h1>
-            <p> Given a PR quadtree T nodes u and v and given a desired amount of seperation s > 0, let P(u) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of u. Simmilarly let P(v) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of v. We can find WSPD for the unordered cartesian product (⊗) of P(u) ⊗ P(v) using the algorithm below.
+            <p> Given a PR quadtree T nodes u and v and given a desired amount of seperation s > 0, let P(u) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of u. Simmilarly let P(v) denote the intersection beteween total set of points and the points within the PR quadtree square i.e the diameter of v. We can find WSPD for the Tensor product (⊗) of P(u) ⊗ P(v) using the algorithm below.
         <br>
         <center>
           Δu = diameter of node u <br>
@@ -158,13 +158,15 @@
        </p>
        <u><h3> Packing Argument</h3></u>
         <p>Algorithm also uses a packing argument to divide up the nodes of the quadtree into s-WSPD. The number of circles of size Δ that are at k away from a given point is O(k^2/Δ^2) or in our case O(1/s^2)</p>
-        <p> A circle packing is an arrangement of circles inside a given boundary such that no two overlap and some (or all) of them are mutually tangent. The generalization to spheres is called a sphere packing. Tessellations of regular polygons correspond to particular circle packings (Williams 1979, pp. 35-41). There is a well-developed theory of circle packing in the context of discrete conformal mapping (Stephenson). </p>
+        <p> A circle packing is an arrangement of circles inside a given boundary such that no two overlap and some (or all) of them are mutually tangent. The generalization to spheres is called a sphere packing. Tessellations of regular polygons correspond to particular circle packings (Williams 1979, pp. 35-41). There is a well-developed theory of circle packing in the context of discrete conformal mapping (Stephenson) (Wolfram). </p>
+        <center><img src="http://mathworld.wolfram.com/images/eps-gif/CircleTriplets_1000.gif"> </center>
          <center><a href="http://lramrz.com/2017/01/circle-packing-in-processing/" target="_blank" class="btn btn-default btn-lg"> For more cool visualizations of circle packing click here!</a> </center>
         <p> <br>
-        Using these two concepts we have shown that Total runtime of WSPD(u, v, T, s) = O(nlog(n) + n/(s^2)).
+        Using these two concepts we have shown that total runtime of <b>O(nlog(n) + n/(s^2))</b>.
         </p>
 
-      <center><img src="http://mathworld.wolfram.com/images/eps-gif/CircleTriplets_1000.gif"> </center>
+
+
   </div> <!-- End of PROOF OF CORRECTNESS -->
     <!-- APPLICATIONS -->
   <div class="container-fluid bg-b" id="APPLICATIONS">
@@ -217,8 +219,13 @@
   <div class="container-fluid bg-b text-center" id="contact">
     <h1>WORKS CITED</h1>
     <div class="row">
+      <a href="https://sites.cs.ucsb.edu/~suri/cs235/Rlist/wellSepPairDecom.pdf" target="_blank" class="btn btn-default btn-lg">Callahan & Kosaraju</a>
+      <a href="https://cs.stanford.edu/people/rexy/uploads/2/3/9/0/23903170/lec13.pdf" target="_blank" class="btn btn-default btn-lg">Agarwal</a>
+       <a href="https://pdfs.semanticscholar.org/e22e/dbc174c35ec996726a9e596e93e51ebd4bc9.pdf" target="_blank" class="btn btn-default btn-lg">Smid</a>
     </div>
     <div class="row">
+      <a href="http://mathworld.wolfram.com/CirclePacking.html" target="_blank" class="btn btn-default btn-lg">Wolfram</a>
+     <a href="http://www.ams.org/notices/200311/fea-stephenson.pdf" target="_blank" class="btn btn-default btn-lg">Stephenson</a>
     </div>
   </div><!-- End of Works CIted -->
   <p class="text-center">Rebecca & Sofiia<p>
